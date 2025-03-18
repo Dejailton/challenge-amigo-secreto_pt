@@ -1,18 +1,21 @@
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
+    --color-primary: #acb490;
+    --color-secondary: #aa945f;
     --color-tertiary: #C4C4C4;
     --color-button: #fe652b;
     --color-button-hover: #e55720;
     --color-text: #444444;
     --color-white: #FFFFFF;
+    --color-danger: #ff4d4d;
+    --color-danger-hover: #d93636;
 }
 
-/* Estilos gerais */
+/* Reset geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 body {
@@ -34,129 +37,184 @@ body {
 .header-banner {
     flex: 40%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     padding: 40px 0 0;
+}
+
+.header-banner img {
+    max-width: 180px;
+    margin-top: 10px;
 }
 
 /* Seção de entrada */
 .input-section {
     flex: 60%;
-    background-color: var(--color-secondary);
-    border: 1px solid #000;
+    background: linear-gradient(to bottom, var(--color-secondary), #ffe4b5);
     border-radius: 64px 64px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 25px;
     width: 100%;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Títulos */
 .main-title {
-    font-size: 48px;
-    font-family: "Merriweather", serif;
+    font-size: 50px;
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
 }
 
 .section-title {
-    font-family: "Inter", serif;
     font-size: 36px;
     font-weight: 700;
     color: var(--color-primary);
-    margin: 10px 0;
+    margin-bottom: 15px;
     text-align: center;
 }
 
-/* Contêineres de entrada e botão */
+/* Campo de entrada */
 .input-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 550px;
     margin-top: 20px;
 }
 
 .input-name {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #000;
-    border-radius: 25px 0 0 25px;
-    font-size: 16px;
-}
-
-.button-container {
-    width: 300px;
-    justify-content: center;
-}
-
-/* Estilos de entrada de texto */
-.input-title {
     flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
+    padding: 15px;
+    border: 2px solid var(--color-primary);
     border-right: none;
     border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s;
 }
 
-/* Estilos de botão */
+.input-name:focus {
+    border-color: var(--color-button);
+    box-shadow: 0px 0px 10px rgba(254, 101, 43, 0.5);
+}
+
+/* Botões */
 button {
-    padding: 15px 30px;
-    font-family: "Inter", sans-serif;
+    padding: 15px 25px;
     font-size: 16px;
-    border: 2px solid #000;
+    font-weight: bold;
+    border: none;
     border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .button-add {
-    background-color: var(--color-tertiary);
-    color: var(--color-text);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border-radius: 0 25px 25px 0;
+    font-size: 18px;
 }
 
 .button-add:hover {
-    background-color: #a1a1a1;
+    background-color: #3b5ce1;
 }
 
-/* Listas */
-ul {
+/* Lista de amigos */
+.name-list {
     list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    margin: 20px 0;
-}
-
-.result-list {
-    margin-top: 15px;
-    color: #05DF05;
-    font-size: 22px;
-    font-weight: bold;
+    width: 100%;
+    max-width: 550px;
+    padding: 15px;
+    margin-top: 20px;
     text-align: center;
 }
 
-/* Botão de sortear título */
+.name-list li {
+    background: var(--color-tertiary);
+    padding: 12px 15px;
+    margin: 5px 0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.name-list li:hover {
+    background: #a8a8a8;
+    transform: scale(1.02);
+}
+
+/* Botão remover */
+.remove-btn {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: var(--color-danger-hover);
+    transform: scale(1.1);
+}
+
+/* Resultado */
+.result-list {
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #05DF05;
+    text-align: center;
+}
+
+/* Botão de sortear */
+.button-container {
+    margin-top: 20px;
+}
+
 .button-draw {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 10px 40px;
+    padding: 12px 35px;
     color: var(--color-white);
-    background-color: var(--color-button);
-    font-size: 16px;
+    background: linear-gradient(to right, var(--color-button), var(--color-button-hover));
+    font-size: 20px;
+    border-radius: 30px;
 }
 
 .button-draw img {
-    margin-right: 40px;
+    margin-right: 10px;
+    width: 28px;
 }
 
 .button-draw:hover {
-    background-color: var(--color-button-hover);
+    background: linear-gradient(to right, var(--color-button-hover), var(--color-button));
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 38px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .button-draw {
+        font-size: 18px;
+        padding: 10px 25px;
+    }
 }
